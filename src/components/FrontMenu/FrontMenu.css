@@ -1,0 +1,27 @@
+.front__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  text-align: center;
+  min-width: 95%;
+}
+
+.front__menu h1 {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-md);
+}
+
+.front__logo {
+  margin-bottom: var(--space-lg);
+}
+
+.menu__buttons {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-black);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+}
