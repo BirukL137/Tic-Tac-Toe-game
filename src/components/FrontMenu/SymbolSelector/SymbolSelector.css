@@ -1,0 +1,36 @@
+.symbol__selector {
+  background-color: var(--color-darkBlue);
+  color: var(--color-grey);
+  width: 95%;
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.1ch;
+  margin-bottom: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding-block: var(--space-lg);
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.symbol__selector h3 {
+  font-size: var(--fs-base);
+}
+
+.symbol__selector p {
+  font-size: 0.8rem;
+  font-weight: var(--fw-bold);
+  opacity: 0.6;
+}
+
+.symbol__selector button {
+  background-color: transparent;
+  flex: 1;
+}
+
+.symbol__selector button img {
+  width: 35px;
+}
