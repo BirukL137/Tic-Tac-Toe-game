@@ -1,0 +1,27 @@
+.game__shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-md);
+  min-width: 350px;
+}
+
+.game__shell.disable__interactions {
+  pointer-events: none;
+}
+
+.scoreboard {
+  margin: var(--space-sm) 0;
+  text-align: center;
+  font-size: var(--fs-base);
+  display: flex;
+  gap: var(--space-md);
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 40em) {
+  .game__shell {
+    width: 400px;
+  }
+}
