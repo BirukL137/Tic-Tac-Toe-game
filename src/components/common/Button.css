@@ -1,0 +1,51 @@
+.btn {
+  font-family: inherit;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  color: var(--color-black);
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Variants */
+.btn.primary {
+  background-color: var(--color-orange);
+}
+
+.btn.secondary {
+  background-color: var(--color-green);
+}
+
+.btn.selected {
+  background-color: var(--color-grey);
+}
+
+/* States */
+.btn.primary:hover {
+  background-color: var(--color-lightOrange);
+}
+
+.btn.secondary:hover {
+  background-color: var(--color-blue);
+}
+
+.btn.selected:hover {
+  background-color: var(--color-white);
+}
+
+.btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
