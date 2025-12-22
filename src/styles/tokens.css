@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  /* 🎨 Colors */
+  --color-green: #31c3bd;
+  --color-blue: #65e9e4;
+  --color-darkBlue: #1f3641;
+  --color-orange: #f2b137;
+  --color-lightOrange: #ffc860;
+  --color-black: #1a2a33;
+  --color-grey: #a8bfc9;
+  --color-white: #dbe8ed;
+
+  /* 🖋 Typography */
+  --ff-base: "Inter", sans-serif;
+
+  --fs-base: 1rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 2rem;
+
+  --fw-normal: 400;
+  --fw-bold: 700;
+
+  /* 📐 Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* 🔲 Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
