@@ -1,21 +1,15 @@
 import Button from "../../common/Button";
 import "./ModeSelector.css";
 
-const ModeSelector = ({ selectedMode, onSelect }) => {
+const ModeSelector = ({ onSelect }) => {
   return (
     <div className="mode__selector">
       <h2 className="visually__hidden">Choose Game Mode</h2>
       <div className="menu__buttons">
-        <Button
-          variant={selectedMode === "cpu" ? "primary" : "primary"}
-          onClick={() => onSelect("cpu")}
-        >
+        <Button variant="primary" onClick={() => onSelect("cpu")}>
           New game (Vs Cpu)
         </Button>
-        <Button
-          variant={selectedMode === "two" ? "secondary" : "secondary"}
-          onClick={() => onSelect("two")}
-        >
+        <Button variant="secondary" onClick={() => onSelect("two")}>
           New game (Vs Player)
         </Button>
       </div>
