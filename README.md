@@ -1,16 +1,113 @@
-# React + Vite
+# Tic Tac Toe Game 🎮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive, and accessible implementation of Tic Tac Toe built with **React**, **Context API**, and a professional CSS architecture. This project is based on the [Frontend Mentor Tic Tac Toe challenge](https://www.frontendmentor.io/challenges/tic-tac-toe-game).
 
-Currently, two official plugins are available:
+--- ## Table of contents 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge) 
+  - [Screenshot](#screenshot) 
+  - [Links](#links) 
+- [My process](#my-process) 
+  - [Built with](#built-with) 
+  - [What I learned](#what-i-learned) 
+  - [Continued development](#continued-development) 
+  - [Useful resources](#useful-resources) 
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Overview 
 
-## Expanding the ESLint configuration
+### The challenge 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Users should be able to: 
+
+- Play Tic Tac Toe against another player or the CPU - Choose their symbol (X or O) 
+- Select difficulty and mode 
+- See the game state update in real time 
+- View the score and round results 
+- Experience a responsive, accessible UI across devices 
+
+### Screenshot 
+
+![Tic Tac Toe Screenshot](/public/screenshots/screenshot-game.png) 
+
+### Live demo 
+
+👉 [Live Demo on Vercel](https://your-vercel-link-here)
+
+---
+
+## ✨ Features
+
+- 🎨 **Design System**: Tokens, base resets, and modular CSS for consistent styling.
+- ♿ **Accessibility**: ARIA roles, keyboard navigation, and focus styles.
+- 🧠 **Game Logic**: Reducer + Context API for global state management.
+- 🤖 **CPU Opponent**: Random, heuristic and minimax algorithms for different difficulty levels.
+- 🔄 **Custom Hook**: `useGame` encapsulates game state and logic.
+- ✅ **Testing**: Unit tests for CPU logic (`cpu.test.js`) with Vitest.
+- 📱 **Responsive**: Works seamlessly across mobile, tablet, and desktop.
+
+---
+
+## My process
+
+## Built with
+
+- **React 18** – functional components + hooks 
+- **Context API** – global state management 
+- **Custom hooks** – `useGame` for encapsulating game logic 
+- **CSS architecture** – tokens, base resets, modular component styles 
+- **Vitest** – unit testing (`cpu.test.js`) 
+- **Vite** – fast dev build tool
+---
+
+### What I learned
+
+- How to structure a REact app with **Context API** and **custom hooks** for clean state management.
+- Writing unit tests for CPU logic (heuristic vs minimax) to ensure correctness.
+- Building a **design system** with tokens and base styles for consistency.
+- Applying **ARIA roles** and accessibility best practices to interactive components.
+
+### How to Run locally
+
+```bash
+# Clone the repository
+git clone https://github.com/BirukL137/Tic-tac-toe.git
+
+cd Rest-countries-api-with-color-theme-switcher
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Run unit tests with:
+npm test
+```
+
+### Continued development
+- Add integration tests for `useGame` and `GameContext`.
+- Expand accessibility testing (keyboard navigation, focus management).
+- Consider migrating to **TypeScript** for type safety.
+- Improve animations and transitions for polished UX.
+
+### Useful resources 
+
+- [Frontend Mentor](https://www.frontendmentor.io) – Challenge source. 
+- [React Docs](https://react.dev) – For Context API and hooks. 
+- [Vitest](https://vitest.dev/guide/) – For writing unit tests.
+
+## Author
+
+- Frontend Mentor - [@BirukL137](https://www.frontendmentor.io/profile/BirukL137)
+- GitHub - [@BirukL137](https://github.com/BirukL137)
+
+## Acknowledgments
+
+Thanks to Frontend Mentor for providing the challenge
+
+---
