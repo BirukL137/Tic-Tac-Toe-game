@@ -77,7 +77,7 @@ Users should be able to:
 # Clone the repository
 git clone https://github.com/BirukL137/Tic-tac-toe.git
 
-cd Rest-countries-api-with-color-theme-switcher
+cd Tic-tac-toe
 
 # Install dependencies
 npm install
