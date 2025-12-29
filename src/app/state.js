@@ -16,7 +16,7 @@ export const initialState = {
   lastMoveByCpu: null,
 };
 
-export const reducer = (state, action) => {
+export const gameReducer = (state, action) => {
   switch (action.type) {
     case "START_GAME": {
       const { symbol, mode, difficulty } = action.payload;
