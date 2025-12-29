@@ -5,13 +5,19 @@ import DifficultySelector from "./ModeSelector/DifficultySelector";
 import logo from "/images/logo.svg";
 import "./FrontMenu.css";
 
-const FrontMenu = ({ onStart }) => {
+import useGame from "../../hooks/useGame";
+
+const FrontMenu = () => {
+  const { dispatch } = useGame();
   const [selectedSymbol, setSelectedSymbol] = useState("O");
   const [selectedMode, setSelectedMode] = useState(null);
 
   const handleStart = (mode, difficulty = null) => {
     if (selectedSymbol && mode) {
-      onStart(selectedSymbol, mode, difficulty);
+      dispatch({
+        type: "START_GAME",
+        payload: { symbol: selectedSymbol, mode, difficulty },
+      });
     }
   };
 
@@ -35,10 +41,7 @@ const FrontMenu = ({ onStart }) => {
       {selectedMode === "cpu" ? (
         <>
           {/* Difficulty selection (shown only for CPU mode) */}
-          <DifficultySelector
-            onSelect={handleDifficultySelect}
-            enabled={selectedMode === "cpu"}
-          />
+          <DifficultySelector onSelect={handleDifficultySelect} />
         </>
       ) : (
         <>
@@ -51,10 +54,7 @@ const FrontMenu = ({ onStart }) => {
           />
 
           {/* Mode selection */}
-          <ModeSelector
-            selectedMode={selectedMode}
-            onSelect={handleModeSelect}
-          />
+          <ModeSelector onSelect={handleModeSelect} />
         </>
       )}
     </div>
