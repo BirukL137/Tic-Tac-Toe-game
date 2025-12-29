@@ -5,22 +5,81 @@ import EndRoundModal from "./Modal/EndRoundModal";
 import ConfirmQuitModal from "./Modal/ConfirmQuitModal";
 import Header from "./Header/Header";
 import "./GameShell.css";
+import useGame from "../../hooks/useGame";
+import {
+  applyCpuMove,
+  applyPlayerMove,
+  evaluateBoard,
+} from "../../logic/gameEngine";
 
-const GameShell = ({
-  board,
-  handleClick,
-  currentPlayer,
-  gameMode,
-  playerSymbol,
-  score,
-  endMessage,
-  winnerSymbol,
-  winningCells,
-  onRestart,
-  onBackToMenu,
-  lastMoveByCpu,
-}) => {
+const GameShell = () => {
+  const { state, dispatch, helpers } = useGame();
   const [showQuitConfirm, setShowQuitConfirm] = useState(false);
+
+  const handleClick = (index) => {
+    if (state.board[index] !== "" || state.gameOver) return;
+
+    let newBoard = [...state.board];
+
+    if (state.gameMode === "cpu") {
+      // Player move
+      newBoard = applyPlayerMove(state.board, index, state.playerSymbol);
+      dispatch({
+        type: "PLAYER_MOVE",
+        payload: { board: newBoard, currentPlayer: state.cpuSymbol },
+      });
+
+      const result = evaluateBoard(newBoard);
+      if (result) return dispatch({ type: "END_GAME", payload: result });
+
+      // CPU move — schedule via context helper so it can be cleared centrally
+      helpers.scheduleCpuMove(() => {
+        const cpuBoard = applyCpuMove(
+          newBoard,
+          state.cpuSymbol,
+          state.difficulty
+        );
+
+        const cpuIndex = cpuBoard.findIndex(
+          (cell, i) => cell !== newBoard[i] && cell === state.cpuSymbol
+        );
+
+        dispatch({
+          type: "CPU_MOVE",
+          payload: {
+            board: cpuBoard,
+            currentPlayer: state.playerSymbol,
+            lastMoveByCpu: cpuIndex,
+          },
+        });
+
+        const cpuResult = evaluateBoard(cpuBoard);
+        if (cpuResult)
+          return dispatch({ type: "END_GAME", payload: cpuResult });
+      });
+    } else if (state.gameMode === "two") {
+      // Two player move
+      newBoard = applyPlayerMove(state.board, index, state.currentPlayer);
+      const nextPlayer = state.currentPlayer === "X" ? "O" : "X";
+      dispatch({
+        type: "PLAYER_MOVE",
+        payload: { board: newBoard, currentPlayer: nextPlayer },
+      });
+
+      const result = evaluateBoard(newBoard);
+      if (result) return dispatch({ type: "END_GAME", payload: result });
+    }
+  };
+
+  const handleBackToMenu = () => {
+    helpers.clearPendingCpuMove();
+    dispatch({ type: "BACK_TO_MENU" });
+  };
+
+  const handleRestart = () => {
+    helpers.clearPendingCpuMove();
+    dispatch({ type: "RESTART" });
+  };
   return (
     <div
       className={`game__shell ${
@@ -29,32 +88,19 @@ const GameShell = ({
     >
       <h1 className="visually__hidden">Tic Tac Toe</h1>
       {/* Header */}
-      <Header currentPlayer={currentPlayer} onSet={setShowQuitConfirm} />
+      <Header onSet={setShowQuitConfirm} />
 
       {/* Board grid */}
-      <Board
-        board={board}
-        handleClick={handleClick}
-        winningCells={winningCells}
-        lastMoveByCpu={lastMoveByCpu}
-        currentPlayer={currentPlayer}
-        winnerSymbol={winnerSymbol}
-      />
+      <Board handleClick={handleClick} />
 
       {/* Scoreboard */}
-      <Scoreboard
-        score={score}
-        gameMode={gameMode}
-        playerSymbol={playerSymbol}
-      />
+      <Scoreboard />
 
       {/* End round modal (only shows when round ends) */}
-      {endMessage && (
+      {state.endMessage && (
         <EndRoundModal
-          message={endMessage}
-          onRestart={onRestart}
-          onBackToMenu={onBackToMenu}
-          winnerSymbol={winnerSymbol}
+          onRestart={handleRestart}
+          onBackToMenu={handleBackToMenu}
         />
       )}
 
@@ -63,7 +109,7 @@ const GameShell = ({
           onCancel={() => setShowQuitConfirm(false)}
           onConfirm={() => {
             setShowQuitConfirm(false);
-            onRestart();
+            handleRestart();
           }}
         />
       )}
