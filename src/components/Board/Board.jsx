@@ -1,26 +1,18 @@
 import Cell from "./Cell";
 import "./Board.css";
+import useGame from "../../hooks/useGame";
 
-const Board = ({
-  board,
-  handleClick,
-  winningCells,
-  lastMoveByCpu,
-  currentPlayer,
-  winnerSymbol,
-}) => {
+const Board = ({ handleClick }) => {
+  const { state } = useGame();
   return (
     <div className="board" role="grid" aria-label="Tic Tac Toe board">
-      {board.map((value, index) => (
+      {state.board.map((value, index) => (
         <Cell
           key={index}
           value={value}
           index={index}
           onClick={() => handleClick(index)}
-          isWinning={winningCells.includes(index)}
-          lastMoveByCpu={lastMoveByCpu}
-          currentPlayer={currentPlayer}
-          winnerSymbol={winnerSymbol}
+          isWinning={state.winningCells.includes(index)}
         />
       ))}
     </div>
