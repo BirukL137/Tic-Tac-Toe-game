@@ -4,15 +4,17 @@ import logo from "/images/logo.svg";
 import iconXGrey from "/images/icons/icon-x-grey.svg";
 import iconOGrey from "/images/icons/icon-o-grey.svg";
 import iconRestart from "/images/icons/icon-restart.svg";
+import useGame from "../../../hooks/useGame";
 
-const Header = ({ currentPlayer, onSet }) => {
+const Header = ({ onSet }) => {
+  const { state } = useGame();
   return (
     <header className="header">
       <img className="header__logo" src={logo} alt="Logo" aria-hidden="true" />
       <div className="header__turn-indicator">
         <img
-          src={currentPlayer === "X" ? iconXGrey : iconOGrey}
-          alt={currentPlayer === "X" ? "Icon X" : "Icon O"}
+          src={state.currentPlayer === "X" ? iconXGrey : iconOGrey}
+          alt={state.currentPlayer === "X" ? "Icon X" : "Icon O"}
         />
         <span>Turn</span>
       </div>
