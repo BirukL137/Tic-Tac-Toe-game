@@ -1,9 +1,7 @@
 import Button from "../../common/Button";
 import "./ModeSelector.css";
 
-const DifficultySelector = ({ onSelect, enabled }) => {
-  if (!enabled) return null;
-
+const DifficultySelector = ({ onSelect }) => {
   return (
     <div className="mode__selector">
       <h2>Choose Difficulty</h2>
