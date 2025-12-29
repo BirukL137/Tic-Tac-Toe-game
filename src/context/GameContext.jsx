@@ -1,10 +1,10 @@
 import { createContext, useCallback, useReducer, useRef } from "react";
-import { initialState, reducer } from "../app/state";
+import { initialState, gameReducer } from "../app/state";
 
 export const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(gameReducer, initialState);
 
   // ref to hold pending CPU timeout id so we can clear it from anywhere
   const cpuTimeoutRef = useRef(null);
