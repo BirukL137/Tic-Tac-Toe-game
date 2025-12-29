@@ -4,16 +4,12 @@ import outlineIconX from "/images/icons/icon-x-outline.svg";
 import outlineIconO from "/images/icons/icon-o-outline.svg";
 import iconXBlack from "/images/icons/icon-x-black.svg";
 import iconOBlack from "/images/icons/icon-o-black.svg";
+import useGame from "../../hooks/useGame";
 
-const Cell = ({
-  value,
-  index,
-  onClick,
-  isWinning,
-  lastMoveByCpu,
-  currentPlayer,
-  winnerSymbol,
-}) => {
+const Cell = ({ value, index, onClick, isWinning }) => {
+  const {
+    state: { lastMoveByCpu, winnerSymbol, currentPlayer },
+  } = useGame();
   return (
     <button
       className={`cell ${value === "X" ? "X" : value === "O" ? "O" : ""} 
