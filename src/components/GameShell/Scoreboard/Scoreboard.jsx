@@ -1,6 +1,11 @@
+import useGame from "../../../hooks/useGame";
 import Stat from "../../common/Stat";
 
-const Scoreboard = ({ score, gameMode, playerSymbol }) => {
+const Scoreboard = () => {
+  const {
+    state: { gameMode, playerSymbol, score },
+  } = useGame();
+
   return (
     <div className="scoreboard">
       {gameMode === "cpu" ? (
