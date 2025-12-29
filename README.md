@@ -1,6 +1,6 @@
 # Tic Tac Toe Game 🎮
 
-A modern, responsive, and accessible implementation of Tic Tac Toe built with **React**, **Context API**, and a professional CSS architecture. This project is based on the [Frontend Mentor Tic Tac Toe challenge](https://www.frontendmentor.io/challenges/tic-tac-toe-game).
+A modern, responsive, and accessible implementation of Tic Tac Toe built with **React**, **Context API**, and a professional CSS architecture. This project is based on the [Frontend Mentor Tic Tac Toe challenge](https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v).
 
 --- ## Table of contents 
 
@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Live demo 
 
-👉 [Live Demo on Vercel](https://your-vercel-link-here)
+👉 [Live Demo on Vercel](https://tic-tac-toe-game-three-ashen.vercel.app/)
 
 ---
 
