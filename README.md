@@ -56,7 +56,7 @@ Users should be able to:
 
 ## Built with
 
-- **React 18** – functional components + hooks 
+- **React 19** – functional components + hooks 
 - **Context API** – global state management 
 - **Custom hooks** – `useGame` for encapsulating game logic 
 - **CSS architecture** – tokens, base resets, modular component styles 
