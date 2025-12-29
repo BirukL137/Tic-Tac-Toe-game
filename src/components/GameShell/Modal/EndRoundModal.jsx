@@ -2,8 +2,13 @@ import Button from "../../common/Button";
 import "./modal.css";
 import iconX from "/images/icons/icon-x.svg";
 import iconO from "/images/icons/icon-o.svg";
+import useGame from "../../../hooks/useGame";
 
-const EndRoundModal = ({ message, onRestart, onBackToMenu, winnerSymbol }) => {
+const EndRoundModal = ({ onRestart, onBackToMenu }) => {
+  const {
+    state: { winnerSymbol, endMessage },
+  } = useGame();
+
   const renderWinnerIcon = () => {
     if (!winnerSymbol) return null;
     const src = winnerSymbol === "X" ? iconX : iconO;
@@ -20,7 +25,7 @@ const EndRoundModal = ({ message, onRestart, onBackToMenu, winnerSymbol }) => {
           className={`modal__msg ${winnerSymbol === null ? "tied" : ""}`}
           aria-live="polite"
         >
-          {message}
+          {endMessage}
         </p>
         {winnerSymbol && (
           <div className="winner__line" aria-hidden="false">
