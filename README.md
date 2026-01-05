@@ -67,7 +67,7 @@ Users should be able to:
 
 ### What I learned
 
-- How to structure a REact app with **Context API** and **custom hooks** for clean state management.
+- How to structure a React app with **Context API** and **custom hooks** for clean state management.
 - Writing unit tests for CPU logic (heuristic vs minimax) to ensure correctness.
 - Building a **design system** with tokens and base styles for consistency.
 - Applying **ARIA roles** and accessibility best practices to interactive components.
