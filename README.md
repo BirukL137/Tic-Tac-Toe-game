@@ -2,7 +2,8 @@
 
 A modern, responsive, and accessible implementation of Tic Tac Toe built with **React**, **Context API**, and a professional CSS architecture. This project is based on the [Frontend Mentor Tic Tac Toe challenge](https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v).
 
---- ## Table of contents 
+--- 
+## Table of contents 
 
 - [Overview](#overview)
   - [The challenge](#the-challenge) 
